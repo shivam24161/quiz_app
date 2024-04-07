@@ -1,0 +1,44 @@
+#see_answers{
+    background-color: olive;
+    margin-left: 2vw;
+}
+.options_div{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    margin: 2vw;
+}
+.true{
+    background-color: olive;
+    width: 30vw;
+    color: white;
+    padding: 1vw;
+    font-size: 1.5vw;
+}
+.false{
+    padding: 1vw;
+    font-size: 1.5vw;
+}
+.question{
+    font-size: 2vw;
+    color: black;
+    margin: 1vw;
+    font-size: 2vw;
+}
+#true{
+    color:olivedrab;
+    font-size: 2vw;
+    margin: 1vw;
+    margin-left: 2vw;
+    font-weight: bold;
+}
+#false{
+    color:red;
+    font-size: 2vw;
+    font-weight: bold;
+    margin: 1vw;
+    margin-left: 2vw;
+}
+.score_answer_div{
+    margin: 2vw;
+}
