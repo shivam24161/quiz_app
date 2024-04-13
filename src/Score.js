@@ -66,7 +66,7 @@ const Score = () => {
           onClose={handleClose}
           TransitionComponent={Transition}
         >
-          <AppBar sx={{ position: "sticky",backgroundColor:"#926DDE" }}>
+          <AppBar sx={{ position: "sticky", backgroundColor: "#926DDE" }}>
             <Toolbar>
               <IconButton
                 edge="start"
@@ -86,63 +86,61 @@ const Score = () => {
           </AppBar>
           <div>
             <div className="score_answer_div">
-              {quiz.map((i, index) => {
+              {quiz.map((i, ind) => {
                 if (i.category === obj.quiztype) {
                   return (
-                    <>
-                      <div className="">
-                        <div className="question">
-                          {i.a}. {i.question}
-                        </div>
-                        {i.answers.map((j) => {
-                          return (
-                            <>
-                              <div className="options_div">
-                                <div
-                                  className={i.correct_answers.answer_a_correct}
-                                >
-                                  {" "}
-                                  A: {j.answer_a}
-                                </div>
-                                <div
-                                  className={i.correct_answers.answer_b_correct}
-                                >
-                                  {" "}
-                                  B: {j.answer_b}
-                                </div>
-                                <div
-                                  className={i.correct_answers.answer_c_correct}
-                                >
-                                  {" "}
-                                  C: {j.answer_c}
-                                </div>
-                                <div
-                                  className={i.correct_answers.answer_d_correct}
-                                >
-                                  {" "}
-                                  D: {j.answer_d}
-                                </div>
-                              </div>
-                              {obj.answers.map((k) => {
-                                var a = k.option.slice(7, 8);
-                                if (i.id === k.id)
-                                  return (
-                                    <>
-                                      <div className="answer">
-                                        <p id={k.answered}>
-                                          Your answer is : Option: {a}
-                                        </p>
-                                      </div>
-                                    </>
-                                  );
-                              })}
-                            </>
-                          );
-                        })}
+                    <div key={ind}>
+                      <div className="question">
+                        {i.a}. {i.question}
                       </div>
-                    </>
+                      {i.answers.map((j,index) => {
+                        return (
+                          <React.Fragment key={index}>
+                            <div className="options_div" >
+                              <div
+                                className={i.correct_answers.answer_a_correct}
+                              >
+                                {" "}
+                                A: {j.answer_a}
+                              </div>
+                              <div
+                                className={i.correct_answers.answer_b_correct}
+                              >
+                                {" "}
+                                B: {j.answer_b}
+                              </div>
+                              <div
+                                className={i.correct_answers.answer_c_correct}
+                              >
+                                {" "}
+                                C: {j.answer_c}
+                              </div>
+                              <div
+                                className={i.correct_answers.answer_d_correct}
+                              >
+                                {" "}
+                                D: {j.answer_d}
+                              </div>
+                            </div>
+                            {obj.answers.map((k,kInd) => {
+                              var a = k.option.slice(7, 8);
+                              if (i.id === k.id)
+                                return (
+                                    <div className="answer" key={kInd}>
+                                      <p id={k.answered}>
+                                        Your answer is : Option: {a}
+                                      </p>
+                                    </div>
+                                );
+                              return null;
+                            })}
+                          </React.Fragment>
+                        );
+                      })}
+                    </div>
                   );
                 }
+                return null;
               })}
             </div>
           </div>
